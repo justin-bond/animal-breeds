@@ -1,0 +1,32 @@
+# system files
+##############
+.DS_Store
+.DS_Store?
+~*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# node dependency directory
+###########################
+node_modules
+
+# build files
+#############
+public
+.cache
+
+# env files
+# these may contain sensitive data
+# so we shouldn't check them in
+###########
+.env.*
+!.env.example
+
+# vscode workspace settings
+###########################
+.vscode
+
+src/gatsby-types.d.ts
