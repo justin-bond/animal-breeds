@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PageProps, graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 import { AnimalsType } from "../types/animals";
 import { animalBreedType } from "../types/animal-breed";
 // import Layout from "../components/layout";
@@ -21,7 +21,13 @@ const AnimalPage = ({ data }: PageProps<AnimalPageProps>) => {
       <div>This is the animal page for</div>
       <div>{contentfulAnimals.animalName}</div>
       {allContentfulAnimalBreed.nodes.map((breed) => {
-        return <div>{breed.animalBreed}</div>;
+        return (
+          <div key={breed.handle}>
+            <Link to={`/${breed.animals[0].handle}/${breed.handle}`}>
+              {breed.animalBreed}
+            </Link>
+          </div>
+        );
       })}
     </div>
   );

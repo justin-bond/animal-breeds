@@ -1,3 +1,5 @@
+import { AnimalsType } from "./animals";
+
 export type animalBreedType = {
   animalBreed: string;
   handle: string;
@@ -5,4 +7,5 @@ export type animalBreedType = {
   description?: any;
   origination?: string;
   lifespan?: string;
+  animals: AnimalsType[];
 };
