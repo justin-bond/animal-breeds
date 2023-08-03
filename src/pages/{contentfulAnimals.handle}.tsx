@@ -1,7 +1,7 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql } from "gatsby";
 
-// import SEOHead from "../components/head";
+import SEOHead from "../components/SEOHead";
 import Layout from "../components/Layout";
 import BreedCard from "../components/BreedCard";
 
@@ -11,7 +11,6 @@ import { animalBreedType } from "../types/animal-breed";
 import { H1, Text } from "../styles/global";
 import { Grid } from "../styles/grid";
 import { Container } from "../styles/container";
-import SEOHead from "../components/SEOHead/SEOHead";
 
 type AnimalPageProps = {
   contentfulAnimals: AnimalsType;
@@ -28,11 +27,11 @@ const AnimalPage = ({ data }: PageProps<AnimalPageProps>) => {
       <Container maxWidth="1440px" width="90%" margin="0 auto">
         <Container marginBottom="36px">
           <Container marginBottom="12px">
-            <H1>{contentfulAnimals.animalName} breeds</H1>
+            <H1>{contentfulAnimals.animalName} Breeds</H1>
           </Container>
           <Text>{allContentfulAnimalBreed.nodes.length} Breeds</Text>
         </Container>
-        <Grid $columnsTablet="repeat(3, 1fr)" gap="40px">
+        <Grid columnsTablet="repeat(3, 1fr)" gap="40px">
           {allContentfulAnimalBreed.nodes.map((breed: animalBreedType) => {
             return (
               <React.Fragment key={breed.handle}>

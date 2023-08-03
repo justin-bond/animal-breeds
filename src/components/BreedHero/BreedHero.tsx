@@ -1,5 +1,9 @@
 import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { Link } from "gatsby-link";
+
+import Rating from "../Rating";
+import Button from "../Button";
 
 import { animalBreedType } from "../../types/animal-breed";
 
@@ -7,10 +11,9 @@ import { Container } from "../../styles/container";
 import { BoldText, H1, Text } from "../../styles/global";
 import { BreedDetailsContainer, ImageContainer } from "./styles";
 import { Grid } from "../../styles/grid";
-import Rating from "../Rating/Rating";
+
 import RatingFilled from "../../icons/RatingFilled";
 import RatingUnfilled from "../../icons/RatingUnfilled";
-import { Link } from "gatsby-link";
 
 const BreedHero = ({
   animalBreed,
@@ -26,11 +29,10 @@ const BreedHero = ({
     <div>
       <Container marginBottom="24px">
         <Link to={`/${animals[0].handle}`}>
-          {"Back to "}
-          {`${animals[0].animalName} Breeds`}
+          <Button>{`Back to ${animals[0].animalName} Breeds`}</Button>
         </Link>
       </Container>
-      <Grid $columnsTablet="65% 1fr" gap="20px">
+      <Grid columnsTablet="65% 1fr" gap="20px">
         <div>
           <ImageContainer marginBottom="24px">
             <img src={image.url} />

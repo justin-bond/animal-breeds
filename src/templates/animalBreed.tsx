@@ -1,13 +1,13 @@
 import * as React from "react";
 import { PageProps, graphql } from "gatsby";
 
-import Layout from "../components/Layout/Layout";
-import BreedHero from "../components/BreedHero/BreedHero";
+import SEOHead from "../components/SEOHead";
+import Layout from "../components/Layout";
+import BreedHero from "../components/BreedHero";
 
 import { animalBreedType } from "../types/animal-breed";
 
 import { Container } from "../styles/container";
-import SEOHead from "../components/SEOHead/SEOHead";
 
 type AnimalBreedPageProps = {
   contentfulAnimalBreed: animalBreedType;
@@ -28,7 +28,6 @@ const AnimalBreedPage = ({ data }: PageProps<AnimalBreedPageProps>) => {
 export default AnimalBreedPage;
 
 export const Head = ({ data }: PageProps<AnimalBreedPageProps>) => {
-  console.log(data);
   const {
     contentfulAnimalBreed: { animalBreed, animals },
   } = data;

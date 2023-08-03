@@ -5,14 +5,16 @@ import { Container } from "./container";
 
 type GridProps = {
   columns?: string;
-  $columnsTablet?: string;
+  columnsTablet?: string;
   rows?: string;
   gap?: string;
   columnGap?: string;
   rowGap?: string;
 };
 
-export const Grid = styled(Container)<GridProps>`
+export const Grid = styled(Container).withConfig({
+  shouldForwardProp: (prop) => !["columnsTablet"].includes(prop),
+})<GridProps>`
   display: grid;
   grid-template-columns: ${({ columns }) => columns || "auto"};
   grid-template-rows: ${({ rows }) => rows || "auto"};
@@ -21,6 +23,6 @@ export const Grid = styled(Container)<GridProps>`
   row-gap: ${({ rowGap }) => rowGap || null};
 
   @media ${device.tablet} {
-    grid-template-columns: ${({ $columnsTablet }) => $columnsTablet || null};
+    grid-template-columns: ${({ columnsTablet }) => columnsTablet || null};
   }
 `;
