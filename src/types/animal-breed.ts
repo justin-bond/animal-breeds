@@ -8,4 +8,6 @@ export type animalBreedType = {
   origination?: string;
   lifespan?: string;
   animals: AnimalsType[];
+  friendliness?: number;
+  shedScale?: number;
 };
