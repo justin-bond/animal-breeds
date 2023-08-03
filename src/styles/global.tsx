@@ -27,6 +27,7 @@ export default createGlobalStyle`
 
 interface TextProps {
   fontSize?: string;
+  lineHeight?: string;
   color?: string;
   align?: "left" | "center" | "right";
   display?: "block" | "inline" | "inline-block";
@@ -51,6 +52,7 @@ export const device = {
 export const Text = styled.span<TextProps>`
   color: ${({ color }) => (color ? color : "#131A22")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "1em")};
+  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "1.5em")};
   text-align: ${({ align }) => (align ? align : null)};
   display: ${({ display }) => (display ? display : null)};
 `;

@@ -11,7 +11,10 @@ type ContainerProps = {
   maxWidth?: string;
 };
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled("div").withConfig({
+  shouldForwardProp: (prop) =>
+    !["maxWidth", "margin", "marginBottom", "padding"].includes(prop),
+})<ContainerProps>`
   margin: ${({ margin }) => margin || 0};
   margin-top: ${({ marginTop }) => marginTop || null};
   margin-bottom: ${({ marginBottom }) => marginBottom || null};

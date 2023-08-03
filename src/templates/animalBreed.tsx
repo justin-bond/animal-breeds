@@ -1,11 +1,13 @@
 import * as React from "react";
 import { PageProps, graphql } from "gatsby";
-import { animalBreedType } from "../types/animal-breed";
+
 import Layout from "../components/Layout/Layout";
+import BreedHero from "../components/BreedHero/BreedHero";
+
+import { animalBreedType } from "../types/animal-breed";
+
 import { Container } from "../styles/container";
-// import Layout from "../components/layout";
-// import { Container, Box, Heading } from "../components/ui";
-// import SEOHead from "../components/head";
+import SEOHead from "../components/SEOHead/SEOHead";
 
 type AnimalBreedPageProps = {
   contentfulAnimalBreed: animalBreedType;
@@ -13,28 +15,47 @@ type AnimalBreedPageProps = {
 
 const AnimalBreedPage = ({ data }: PageProps<AnimalBreedPageProps>) => {
   const { contentfulAnimalBreed } = data;
-  console.log(contentfulAnimalBreed);
+
   return (
     <Layout>
       <Container maxWidth="1440px" width="90%" margin="0 auto">
-        <div>This is the animal breed page for</div>
-        <div>{contentfulAnimalBreed.animalBreed}</div>
+        <BreedHero {...contentfulAnimalBreed} />
       </Container>
     </Layout>
   );
 };
 
 export default AnimalBreedPage;
-// export const Head = (props) => {
-//   const { page } = props.data;
-//   return <SEOHead {...page} />;
-// };
+
+export const Head = ({ data }: PageProps<AnimalBreedPageProps>) => {
+  console.log(data);
+  const {
+    contentfulAnimalBreed: { animalBreed, animals },
+  } = data;
+  return <SEOHead title={`${animalBreed} | ${animals[0].animalName} Breed`} />;
+};
+
 export const query = graphql`
   query AnimalBreedContent($id: String!) {
     contentfulAnimalBreed(id: { eq: $id }) {
       id
       animalBreed
       handle
+      image {
+        id
+        url
+      }
+      description {
+        raw
+      }
+      lifespan
+      friendliness
+      shedScale
+      origination
+      animals {
+        animalName
+        handle
+      }
     }
   }
 `;

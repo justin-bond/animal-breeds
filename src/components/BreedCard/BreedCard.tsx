@@ -1,18 +1,20 @@
 import React from "react";
+import { Link } from "gatsby-link";
+
+import Rating from "../Rating";
 
 import { animalBreedType } from "../../types/animal-breed";
+
+import RatingFilled from "../../icons/RatingFilled";
+import RatingUnfilled from "../../icons/RatingUnfilled";
+
 import { Container } from "../../styles/container";
 import { H3, Text } from "../../styles/global";
-import { Link } from "gatsby-link";
 import {
   BreedCardContainer,
   BreedCardRatingContainer,
   ImageContainer,
 } from "./styles";
-import { Grid } from "../../styles/grid";
-import Rating from "../Rating/Rating";
-import RatingFilled from "../../icons/RatingFilled";
-import RatingUnfilled from "../../icons/RatingUnfilled";
 
 const BreedCard = ({
   animalBreed,

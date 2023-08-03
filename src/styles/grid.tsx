@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
+
 import { device } from "./global";
 import { Container } from "./container";
 
 type GridProps = {
   columns?: string;
-  columnsTablet?: string;
+  $columnsTablet?: string;
   rows?: string;
   gap?: string;
   columnGap?: string;
@@ -20,6 +21,6 @@ export const Grid = styled(Container)<GridProps>`
   row-gap: ${({ rowGap }) => rowGap || null};
 
   @media ${device.tablet} {
-    grid-template-columns: ${({ columnsTablet }) => columnsTablet || null};
+    grid-template-columns: ${({ $columnsTablet }) => $columnsTablet || null};
   }
 `;
